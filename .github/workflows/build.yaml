@@ -32,6 +32,7 @@ jobs:
           allure-token: ${{ secrets.ALLURE_TOKEN }}
           allure-project-id: 4370
       - run: npm install
+      - run: npx playwright install   
       - run: allurectl watch -- npm run test
         env: 
           ALLURE_RESULTS: out/allure-results
