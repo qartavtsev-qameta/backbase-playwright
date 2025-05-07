@@ -1,0 +1,19 @@
+{
+  "name": "playwright",
+  "type": "module",  
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.17.6",
+    "typescript": "^5.6.3",
+    "@playwright/test": "^1.48.2",
+    "allure-playwright": "^3.0.6",
+    "allure-js-commons": "^3.0.6"
+  }
+}
