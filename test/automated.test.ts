@@ -40,13 +40,19 @@ test("Verify error message displays on invalid login attempt @allure.id:10197 @N
     await allure.step("And the user should remain on the login page", async () => {});
 });
 
-test("Verify old password is required to change password @allure.id:10205", async() => {
+test("Verify old password is required to change password @allure.id:10205", async ({ page }) => {
     await allure.epic("Authentication");
     await allure.feature("Password Management");
     await allure.story("Change Password");
-    await allure.step("Given the user is on the password change page", async () => {});
-    await allure.step("And the user enters a new password without entering the old password", async () => {});
-    await allure.step("When the user clicks the Submit button", async () => {});
+    await allure.step("Given the user is on the password change page", async () => {
+        await page.goto('https://docs.qameta.io/allure-testops/');
+    });
+    await allure.step("And the user enters a new password without entering the old password", async () => {
+        await page.click('text=Overview');
+    });
+    await allure.step("When the user clicks the Submit button", async () => {
+        await expect(page).toHaveURL('https://wrong-url.com');
+    });
     await allure.step("Then the user should see an error message", async () => {});
     await allure.step("And the password change should be blocked", async () => {});
 });
