@@ -25,10 +25,18 @@ test("Verify error message displays on invalid login attempt @allure.id:10197 @N
     await allure.epic("Authentication");
     await allure.feature("Login");
     await allure.story("Login with invalid credentials");
-    await allure.step("Given the user is on the login page", async () => {});
-    await allure.step("And the user enters incorrect credentials", async () => {});
-    await allure.step("When the user clicks the Login button", async () => {});
-    await allure.step("Then an error message should be shown", async () => {});
+    await allure.step("Given the user is on the login page", async () => {
+        await page.goto('https://docs.qameta.io/allure-testops/');
+    });
+    await allure.step("And the user enters incorrect credentials", async () => {
+        await expect(page).toHaveTitle(/Allure TestOps/);
+    });
+    await allure.step("When the user clicks the Login button", async () => {
+        await page.click('text=Overview');
+    });
+    await allure.step("Then an error message should be shown", async () => {
+        await expect(page).toHaveURL('https://wrong-url.com');
+    });
     await allure.step("And the user should remain on the login page", async () => {});
 });
 
