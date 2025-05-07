@@ -12,5 +12,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
+      - uses: allure-framework/setup-allurectl@v1
+        with: 
+          allure-endpoint: https://demo.testops.cloud
+          allure-token: ${{ secrets.ALLURE_TOKEN }}
+          allure-project-id: ${{ secrets.ALLURE_PROJECT }}
       - run: npm install
-      - run: npm run test
+      - run: allurectl watch -- npm run test
+        env: 
+          ALLURE_RESULTS: out/allure-results
