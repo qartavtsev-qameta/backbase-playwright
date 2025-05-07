@@ -1,7 +1,7 @@
 const { test } = require("@playwright/test");
 const allure = require("allure-js-commons");
 
-test("Verify confirmation message after updating profile @allure.id:10222", async () => {
+test("Verify confirmation message after updating profile", async () => {
   await allure.epic("Account");
   await allure.feature("Account Settings");
   await allure.story("Update profile information");
