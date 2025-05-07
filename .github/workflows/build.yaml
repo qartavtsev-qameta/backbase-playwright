@@ -12,7 +12,7 @@ on:
       VERSION:
         description: "Specify the software version under test"
         required: false
-        default: "25.1.0"
+        default: ""
 
 env:
   ALLURE_JOB_RUN_ID: ${{ github.event.inputs.ALLURE_JOB_RUN_ID }}
