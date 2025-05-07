@@ -4,7 +4,7 @@ const allure = require("allure-js-commons");
 
 test("Verify confirmation message after updating profile", async () => {
   await allure.epic("Account");
-  await allure.label("AS_MANUAL", "true");
+  await allure.label("ALLURE_MANUAL", "true");
   await allure.feature("Account Settings");
   await allure.story("Update profile information");
 
