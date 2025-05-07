@@ -1,4 +1,4 @@
-const { test } = require("@playwright/test");
+const { test, expect } = require("@playwright/test");
 const allure = require("allure-js-commons");
 
 test("Verify email preferences can be customized @allure.id:10224 @Email @Positive", async() => {
@@ -21,7 +21,7 @@ test("Verify user can log out from a specific device @allure.id:10226 @Positive"
     await allure.step("And a confirmation message should be shown", async () => {});
 });
 
-test("Verify error message displays on invalid login attempt @allure.id:10197 @Negative", async() => {
+test("Verify error message displays on invalid login attempt @allure.id:10197 @Negative", async ({ page }) => {
     await allure.epic("Authentication");
     await allure.feature("Login");
     await allure.story("Login with invalid credentials");
