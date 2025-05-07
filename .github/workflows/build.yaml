@@ -16,6 +16,7 @@ on:
 
 env:
   ALLURE_JOB_RUN_ID: ${{ github.event.inputs.ALLURE_JOB_RUN_ID }}
+  VERSION: ${{ inputs.VERSION }}
 
 jobs:
   build:
@@ -35,4 +36,3 @@ jobs:
         env: 
           ALLURE_RESULTS: out/allure-results
           ALLURE_LAUNCH_NAME: "Test Run #${{ github.run_number }}"
-          VERSION: ${{ inputs.VERSION }}
