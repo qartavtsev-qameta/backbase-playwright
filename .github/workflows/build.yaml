@@ -1,8 +1,6 @@
-name: Build and Test
+name: backbase-playwright
 
 on:
-  push:
-    branches: [ main ]
   workflow_dispatch:
     inputs:
       ALLURE_JOB_RUN_ID:
@@ -11,6 +9,10 @@ on:
       ALLURE_USERNAME:
         description: "Inner parameter for Allure TestOps"
         required: false
+      VERSION:
+        description: "Specify the software version under test"
+        required: true
+        default: "25.1.0"
 
 jobs:
   build:
@@ -24,8 +26,10 @@ jobs:
         with: 
           allure-endpoint: https://demo.testops.cloud
           allure-token: ${{ secrets.ALLURE_TOKEN }}
-          allure-project-id: ${{ secrets.ALLURE_PROJECT }}
+          allure-project-id: 4370
       - run: npm install
       - run: allurectl watch -- npm run test
         env: 
           ALLURE_RESULTS: out/allure-results
+          ALLURE_LAUNCH_NAME: "Test Run #${{ github.run_number }}"
+          VERSION: ${{ inputs.VERSION }}
