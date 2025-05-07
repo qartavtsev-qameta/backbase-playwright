@@ -1,7 +1,7 @@
 const { test } = require("@playwright/test");
 const allure = require("allure-js-commons");
 
-test("Verify email preferences can be customized @Email @Positive", async() => {
+test("Verify email preferences can be customized @allure.id:10224 @Email @Positive", async() => {
     await allure.epic("Account");
     await allure.feature("Account Settings");
     await allure.story("Change notification preferences");
