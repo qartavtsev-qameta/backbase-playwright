@@ -8,6 +8,7 @@ export default defineConfig({
       "allure-playwright",
       {
         resultsDir: "./out/allure-results",
+        detail: false,
         environmentInfo: {
           node_version: process.version,
         },
