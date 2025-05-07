@@ -11,7 +11,7 @@ on:
         required: false
       VERSION:
         description: "Specify the software version under test"
-        required: true
+        required: false
         default: "25.1.0"
 
 env:
